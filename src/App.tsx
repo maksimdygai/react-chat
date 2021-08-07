@@ -1,11 +1,7 @@
-import { Chat } from './layout/Chat/Chat.component';
+import { Chat } from "./layout/Chat/Chat.component";
 
-function App() {
-  return (
-    <div className="App">
-      <Chat />
-    </div>
-  );
-}
-
-export default App;
+export const App = () => (
+  <div className="App">
+    <Chat />
+  </div>
+);
