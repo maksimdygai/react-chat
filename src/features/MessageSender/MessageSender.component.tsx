@@ -5,6 +5,7 @@ import { Container } from "./MessageSender.styled";
 export const MessageSender = () => {
   const [chatMessage, setChatMessage] = useState("");
   const messagesInputRef = createRef<HTMLInputElement>();
+
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) =>
     setChatMessage(e.target.value);
 
