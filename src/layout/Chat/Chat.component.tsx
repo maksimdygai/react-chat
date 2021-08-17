@@ -1,5 +1,5 @@
 import { ChatArea } from "../../features/ChatArea/ChartArea.component";
-import { MessageSender } from "../../features/MessageSender/MessageSender.component";
+import { MessageSender } from "../../features/MessageSender/MessageSender.connector";
 import { Container } from "./Chat.styled";
 
 const messages = [

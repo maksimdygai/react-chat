@@ -1,13 +1,13 @@
 import MicrolinkCard from "@microlink/react";
 import Linkify from "linkifyjs/react";
 import * as getUrls from "get-urls";
-import { Message } from "../../domain/Message";
+import { MessageToRender } from "../../domain/Message";
 import { NicknameRaw } from "./Nickname/Nickname.component";
 import { TimestampRaw } from "./Timestamp/Timestamp.component";
 import { Message as StyledMessage } from "./Message.styled";
 
 export type MessageProps = {
-  message: Message;
+  message: MessageToRender;
 };
 
 const parseURLs = (text: string) => {

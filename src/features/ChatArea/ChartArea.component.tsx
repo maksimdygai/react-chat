@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Message } from "../../domain/Message";
+import { MessageToRender } from "../../domain/Message";
 import { MessageRaw } from "../Message/Message.component";
 import { Container } from "./ChatArea.styled";
 
@@ -10,7 +10,7 @@ import { Container } from "./ChatArea.styled";
 // }
 
 type ChatAreaProps = {
-  messages: Message[];
+  messages: MessageToRender[];
 };
 
 export const ChatArea = (props: ChatAreaProps) => {
