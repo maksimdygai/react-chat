@@ -4,8 +4,8 @@ import { socketReducer } from "./socket/socket.reducer";
 import { socketMiddleware } from "./socket/socket.middleware";
 
 const rootReducer = combineReducers({
-  socketState: socketReducer,
-  messageState: messageReducer,
+  socket: socketReducer,
+  messages: messageReducer,
 });
 
 export const store = {

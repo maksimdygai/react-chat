@@ -2,7 +2,7 @@ import * as styledComponents from "styled-components";
 
 const { default: styled, css, keyframes, ThemeProvider } = styledComponents;
 
-export interface IThemeInterface {
+export interface ThemeInterface {
   primaryLightColor: string;
   secondaryLightColor: string;
   primaryDarkColor: string;

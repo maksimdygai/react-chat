@@ -2,6 +2,7 @@ import { Send } from "@material-ui/icons";
 import { ChangeEvent, useState } from "react";
 import { FC } from "react";
 import { createRef } from "react";
+import { readRecord } from "../../utils/localStorageService";
 import { getTime } from "../../utils/time";
 import { MessageSenderDispatchProps as MessageSenderProps } from "./MessageSender.connector";
 import { Container } from "./MessageSender.styled";
@@ -12,8 +13,14 @@ export const MessageSenderRaw: FC<MessageSenderProps> = ({ sendMessage }) => {
   const username = "amaloh";
 
   const sendChatMessage = () => {
-    if (chatMessage !== "") {
-      sendMessage({ from: username, content: chatMessage, time: getTime() });
+    const clockMode = readRecord("clockMode");
+
+    if (chatMessage !== "" && clockMode) {
+      sendMessage({
+        from: username,
+        content: chatMessage,
+        time: getTime(clockMode),
+      });
     }
   };
 

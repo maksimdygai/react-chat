@@ -1,5 +1,3 @@
-import { readRecord } from "./localStorageService";
-
 export const getTime24hours = (): string => {
   const now = new Date();
 
@@ -31,6 +29,6 @@ export const getTime12Hours = (): string => {
   return `${hours}:${minutes}${ampm}`;
 };
 
-export const getTime = () => {
-  return readRecord("clockMode") === "12" ? getTime12Hours() : getTime24hours();
+export const getTime = (clockMode: string) => {
+  return clockMode === "12" ? getTime12Hours() : getTime24hours();
 };

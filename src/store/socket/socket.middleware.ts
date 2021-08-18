@@ -35,9 +35,9 @@ export class Socket {
     this.user = user;
     this.port = port;
 
-    // const host = `http://192.168.0.220:${port}`; // Running from local network
-    // this.socket = io.connect(host);
-    this.socket = io(); // Running from Heroku
+    const host = `http://192.168.0.106:${port}`;
+
+    this.socket = io(host);
     this.socket.on(EVENTS.CONNECT, this.onConnected);
   };
 
@@ -69,12 +69,12 @@ export const socketMiddleware = (store: any) => {
   const socket = new Socket(onConnectionChange, onIncomingMessage);
 
   return (next: any) => (action: any) => {
-    const messageState = store.getState().messageState;
-    const socketState = store.getState().socketState;
+    const messages = store.getState().messages;
+    const socketState = store.getState().socket;
 
     switch (action.type) {
       case CONNECT_SOCKET:
-        socket.connect(messageState.user, process.env.PORT || socketState.port);
+        socket.connect(messages.user, process.env.PORT || socketState.port);
 
         break;
 

@@ -3,19 +3,12 @@ import { MessageToRender } from "../../domain/Message";
 import { MessageRaw } from "../Message/Message.component";
 import { Container } from "./ChatArea.styled";
 
-// type ChatAreaState = {
-//   messageState: {
-//     messages: []
-//   }
-// }
-
 type ChatAreaProps = {
   messages: MessageToRender[];
 };
 
-export const ChatArea = (props: ChatAreaProps) => {
+export const ChatAreaRaw = ({ messages }: ChatAreaProps) => {
   const chatAreaRef = React.createRef<HTMLDivElement>();
-  const { messages } = props;
 
   return (
     <Container ref={chatAreaRef}>
@@ -29,12 +22,3 @@ export const ChatArea = (props: ChatAreaProps) => {
     </Container>
   );
 };
-
-// public componentDidUpdate(): void {
-//     const chatAreaElement: Element = this.chatAreaRef.current as Element;
-//     const shouldScroll: boolean = chatAreaElement.scrollTop + chatAreaElement.clientHeight !== chatAreaElement.scrollHeight;
-
-//     if (shouldScroll) {
-//       scrollToBottom(chatAreaElement);
-//     }
-//   }
