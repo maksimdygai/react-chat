@@ -8,6 +8,12 @@ const rootReducer = combineReducers({
   messages: messageReducer,
 });
 
+// @ts-ignore
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 export const store = {
-  ...createStore(rootReducer, compose(applyMiddleware(socketMiddleware))),
+  ...createStore(
+    rootReducer,
+    composeEnhancers(applyMiddleware(socketMiddleware))
+  ),
 };

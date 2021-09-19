@@ -35,7 +35,7 @@ export class Socket {
     this.user = user;
     this.port = port;
 
-    const host = `http://192.168.0.106:${port}`;
+    const host = `localhost:${port}`;
 
     this.socket = io(host);
     this.socket.on(EVENTS.CONNECT, this.onConnected);
@@ -50,9 +50,6 @@ export class Socket {
     if (typeof this.socket.emit === "function") {
       this.socket.emit(EVENTS.MESSAGE, message);
     }
-    // } else {
-    //   console.error("Cannot emit socket messages. Socket.io not connected.");
-    // }
   };
 
   public disconnect = () => this.socket.close();
