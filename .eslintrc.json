@@ -1,0 +1,129 @@
+{
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:prettier/recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:jsx-a11y/recommended"
+    ],
+    "globals": {
+      "Atomics": "readonly",
+      "SharedArrayBuffer": "readonly"
+    },
+    "settings": {
+      "react": {
+        "createClass": "createReactClass",
+        "pragma": "React",
+        "version": "detect",
+        "flowVersion": "0.53"
+      }
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": 2018,
+      "sourceType": "module"
+    },
+    "plugins": [
+      "react",
+      "@typescript-eslint",
+      "eslint-plugin-import",
+      "prettier",
+      "unused-imports",
+      "jsx-a11y"
+    ],
+    "rules": {
+      "no-bitwise": 2,
+      "no-caller": 2,
+      "no-console": 2,
+      "no-unused-expressions": 0,
+      "no-extra-boolean-cast": 2,
+      "prefer-rest-params": 0,
+      "prefer-spread": 0,
+      "prefer-const": 2,
+      "no-cond-assign": 2,
+      "object-shorthand": 2,
+      "no-prototype-builtins": 0,
+      "no-case-declarations": 2,
+      "react/prop-types": 0,
+      "react/jsx-no-target-blank": 2,
+      "react/no-unescaped-entities": 2,
+      "react/no-children-prop": 2,
+      "react/display-name": 2,
+      "react/jsx-key": 0,
+      "react/jsx-boolean-value": 2,
+      "react/jsx-curly-brace-presence": [2, "never"],
+      "import/no-default-export": 2,
+      "import/first": 2,
+      "import/order": 2,
+      "@typescript-eslint/no-var-requires": 2,
+      "react/react-in-jsx-scope": "off",
+      "no-unused-vars": [
+        2,
+        {
+          "vars": "all",
+          "args": "none",
+          "ignoreRestSiblings": true,
+          "varsIgnorePattern": "_"
+        }
+      ],
+      "no-multiple-empty-lines": [
+        2,
+        {
+          "max": 1
+        }
+      ],
+      "@typescript-eslint/array-type": [
+        2,
+        {
+          "default": "array"
+        }
+      ],
+      "unused-imports/no-unused-imports-ts": 2,
+      "prettier/prettier": [
+        2,
+        {},
+        {
+          "usePrettierrc": true
+        }
+      ],
+      "padding-line-between-statements": [
+        2,
+        {"blankLine": "always", "prev": "import", "next": "*"},
+        {"blankLine": "always", "prev": "const", "next": "let"},
+        {"blankLine": "always", "prev": "let", "next": "const"},
+        {"blankLine": "always", "prev": "multiline-const", "next": "*"},
+        {"blankLine": "always", "prev": "*", "next": "multiline-const"},
+        {"blankLine": "always", "prev": "multiline-let", "next": "*"},
+        {"blankLine": "always", "prev": "*", "next": "multiline-let"},
+        {"blankLine": "always", "prev": "multiline-expression", "next": "*"},
+        {"blankLine": "always", "prev": "*", "next": "multiline-expression"},
+        {"blankLine": "always", "prev": "multiline-block-like", "next": "*"},
+        {"blankLine": "always", "prev": "*", "next": "multiline-block-like"},
+        {"blankLine": "always", "prev": "*", "next": "break"},
+        {"blankLine": "always", "prev": "*", "next": "return"},
+        {"blankLine": "never", "prev": "import", "next": "import"}
+      ],
+      "jsx-a11y/no-noninteractive-tabindex": [
+        2,
+        {
+          "tags": ["div"],
+          "roles": []
+        }
+      ]
+    },
+    "overrides": [
+      {
+        "files": ["src/**/*.stories.tsx", "src/__mocks__/**/*.{ts,tsx}"],
+        "rules": {
+          "import/no-default-export": 0
+        }
+      }
+    ]
+  }
