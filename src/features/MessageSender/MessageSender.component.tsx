@@ -19,8 +19,9 @@ export const MessageSenderRaw: FC<MessageSenderProps & MessageSenderState> = ({
 
   const sendChatMessage = () => {
     const clockMode = readRecord("clockMode");
+    const clockModeIsSet = clockMode === '12' || clockMode === '24';
 
-    if (chatMessage !== "" && clockMode) {
+    if (chatMessage !== "" && clockModeIsSet) {
       sendMessage({
         from: userName,
         content: chatMessage,
