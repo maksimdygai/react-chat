@@ -29,6 +29,6 @@ export const getTime12Hours = (): string => {
   return `${hours}:${minutes}${ampm}`;
 };
 
-export const getTime = (clockMode?: '12' | '24') => {
+export const getTime = (clockMode?: string) => {
   return clockMode === "12" ? getTime12Hours() : getTime24hours();
 };
