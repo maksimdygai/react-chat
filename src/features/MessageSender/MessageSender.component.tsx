@@ -4,20 +4,25 @@ import { FC } from "react";
 import { createRef } from "react";
 import { readRecord } from "../../utils/localStorageService";
 import { getTime } from "../../utils/time";
-import { MessageSenderDispatchProps as MessageSenderProps } from "./MessageSender.connector";
+import {
+  MessageSenderDispatchProps as MessageSenderProps,
+  MessageSenderState,
+} from "./MessageSender.connector";
 import { Container } from "./MessageSender.styled";
 
-export const MessageSenderRaw: FC<MessageSenderProps> = ({ sendMessage }) => {
+export const MessageSenderRaw: FC<MessageSenderProps & MessageSenderState> = ({
+  userName,
+  sendMessage,
+}) => {
   const [chatMessage, setChatMessage] = useState("");
   const messagesInputRef = createRef<HTMLInputElement>();
-  const username = "amaloh";
 
   const sendChatMessage = () => {
     const clockMode = readRecord("clockMode");
 
     if (chatMessage !== "" && clockMode) {
       sendMessage({
-        from: username,
+        from: userName,
         content: chatMessage,
         time: getTime(clockMode),
       });

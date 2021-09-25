@@ -1,6 +1,6 @@
 import * as styledComponents from "styled-components";
 
-const { default: styled, css, keyframes } = styledComponents;
+const { default: styled } = styledComponents;
 
 export const darkTheme = {
   primaryLightColor: "#e9e9eb",
@@ -18,4 +18,4 @@ export const lightTheme = {
   messageBackgroundColor: "#3b1111",
 };
 
-export { styled, css, keyframes };
+export { styled };

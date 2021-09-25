@@ -4,9 +4,17 @@ import { Message } from "../../domain/Message";
 import { sendMessageAC } from "../../store/message/message.actions";
 import { MessageSenderRaw } from "./MessageSender.component";
 
+export type MessageSenderState = {
+  userName: string;
+};
+
 export type MessageSenderDispatchProps = {
   sendMessage: (message: Message) => void;
 };
+
+const mapStateToProps = (state: MessageSenderState) => ({
+  userName: state.userName,
+});
 
 const mapDispatchToProps = (
   dispatch: Dispatch<any>
@@ -15,6 +23,6 @@ const mapDispatchToProps = (
 });
 
 export const MessageSender = connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(MessageSenderRaw);
