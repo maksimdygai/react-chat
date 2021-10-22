@@ -12,25 +12,25 @@ import { Container } from "./MessageSender.styled";
 
 export const MessageSenderRaw: FC<MessageSenderProps & MessageSenderState> = ({
   userName,
-  sendMessage,
+  sendMessage: sendMessageAction,
 }) => {
-  const [chatMessage, setChatMessage] = useState("");
+  const [message, setMessage] = useState("");
   const messagesInputRef = createRef<HTMLInputElement>();
 
-  const sendChatMessage = () => {
+  const sendMessage = () => {
     const clockMode = readRecord("clockMode");
 
-    if (chatMessage !== "" && clockMode) {
-      sendMessage({
+    if (message !== "" && clockMode) {
+      sendMessageAction({
         from: userName,
-        content: chatMessage,
+        content: message,
         time: getTime(clockMode),
       });
     }
   };
 
   const cleanMessageInput = () => {
-    setChatMessage("");
+    setMessage("");
 
     if (messagesInputRef.current) {
       messagesInputRef.current.focus();
@@ -38,12 +38,12 @@ export const MessageSenderRaw: FC<MessageSenderProps & MessageSenderState> = ({
   };
 
   const handleClick = () => {
-    sendChatMessage();
+    sendMessage();
     cleanMessageInput();
   };
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) =>
-    setChatMessage(e.target.value);
+    setMessage(e.target.value);
 
   return (
     <Container>
@@ -51,7 +51,7 @@ export const MessageSenderRaw: FC<MessageSenderProps & MessageSenderState> = ({
         id="send-message-input"
         type="text"
         ref={messagesInputRef}
-        value={chatMessage}
+        value={message}
         onChange={handleInputChange}
       />
       <button onClick={handleClick}>

@@ -1,6 +1,4 @@
-import * as styledComponents from "styled-components";
-
-const { default: styled } = styledComponents;
+import styled from "styled-components";
 
 export const darkTheme = {
   primaryLightColor: "#e9e9eb",
